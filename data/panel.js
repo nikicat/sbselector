@@ -7,6 +7,12 @@ function setHandlers() {
 }
 
 setHandlers();
+$("#update").click(function() {
+    self.port.emit("checkForUpdates");
+});
+$("#notify").click(function() {
+    self.port.emit("notifyStreamUpdater");
+});
 
 self.port.on("addProvider", function(provider) {
     console.log("addProvider(" + provider.id + ", " + provider.name + ")");
