@@ -1,9 +1,9 @@
 {
     "name": "sbselect", 
-    "license": "MPL 1.1/GPL 2.0/LGPL 2.1", 
+    "license": "GPL 3.0", 
     "author": "Nikolay Bryskin", 
-    "version": "0.1", 
-    "fullName": "sbselect", 
+    "version": "0.3", 
+    "fullName": "SafeBrowsing Selector", 
     "id": "jid1-OqpTKHg5gALzGg", 
-    "description": "a basic add-on"
+    "description": "This addon adds ability to select a SafeBrowsing API provider"
 }

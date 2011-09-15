@@ -1,6 +1,6 @@
 function setHandlers() {
-    $("input").unbind();
-    $("input").click(function() {
+    $(".provider").unbind();
+    $(".provider").click(function() {
         self.port.emit("providerSelected", $(this).prop("id"));
         return true;
     });
@@ -13,10 +13,13 @@ $("#update").click(function() {
 $("#notify").click(function() {
     self.port.emit("notifyStreamUpdater");
 });
+$("#berserk").change(function() {
+    self.port.emit("berserk", $(this).prop("checked"));
+});
 
 self.port.on("addProvider", function(provider) {
     console.log("addProvider(" + provider.id + ", " + provider.name + ")");
-    $("#providers").append("<input type=radio name='group1' id='" + provider.id + "'>" + provider.name + "</input><br>");
+    $("#providers").append("<input type=radio name='group1' class='provider' id='" + provider.id + "'><img src='" + provider.favicon + "'></img>" + provider.name + "</input><br>");
     setHandlers();
 });
 
@@ -26,6 +29,5 @@ self.port.on("selectProvider", function(provider) {
 });
 
 self.port.on("updateTables", function(info) {
-    console.log("updateTables(" + info + ")");
     $("#tables").text(info);
 });
